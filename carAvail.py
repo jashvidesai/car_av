@@ -15,13 +15,10 @@ dbx = dropbox.Dropbox(
 
 def JashviFunction(file_names):
   for file_name in file_names:
-    print(f"Processing file: {file_name}")
-
+      
     local_path = f'data/{file_name}'
     dropbox_file_path = f'/NationWideModule1NNPersonFilesByCounty\'18Kyle/{file_name}'
     dbx.files_download_to_file(local_path, dropbox_file_path)
-
-    print(f"Downloaded file: {local_path}")
 
     with open(file_name, 'r') as file:
       people_file = csv.reader(file)
